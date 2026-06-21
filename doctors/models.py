@@ -7,7 +7,7 @@ class Doctor(models.Model):
     email = models.EmailField(max_length=100)
     phone = models.CharField(max_length=15)
     specialization = models.CharField(max_length=100)
-    years_of_experience = models.IntegerField()
+    years_of_experience = models.PositiveIntegerField()
     is_available = models.BooleanField(default=True)
 
     def __str__(self):
