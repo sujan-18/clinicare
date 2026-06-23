@@ -20,6 +20,7 @@ from rest_framework.routers import DefaultRouter
 from doctors.views import DoctorViewSet
 from appointments.views import AppointmentViewSet
 from patients.views import PatientViewSet
+from rest_framework.authtoken.views import obtain_auth_token
 
 router = DefaultRouter()
 router.register('doctors', DoctorViewSet, basename='doctor')
@@ -29,6 +30,9 @@ router.register('patients', PatientViewSet, basename='patient')
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include(router.urls)),
+    path('api/login/', obtain_auth_token, name='api_login'),
+    path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
+
     
 
 ]
